@@ -18,13 +18,11 @@ This repository serves as a public record of my journey as I delve into the Rust
 - **[Day 2](day2/)**: Exploring Rust syntax and basic data types, Guessing game, Common Programming Concepts.
 - ...
 
-## Learning Journal
 
-For a detailed account of my journey, challenges, and discoveries, check out my [Learning Journal](learning_journal.md).
 
 ## Code Examples
 
-You can find Rust code examples organized by chapters in the [code-examples](code-examples/) directory. Each example showcases a particular concept or feature discussed in the book.
+You can find Rust code examples organized by chapters in the [practice](practice/) directory. Each example showcases a particular concept or feature discussed in the book.
 
 ## How to Use
 
@@ -32,8 +30,8 @@ Feel free to explore the repository, review my code, and provide feedback or sug
 
 ## Connect with Me
 
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/shubham-codes/)
-- Twitter: [@YourTwitterHandle](https://twitter.com/Ctrl_Alt_Deploy)
+- LinkedIn: [shubham_codes](https://www.linkedin.com/in/shubham-codes/)
+- Twitter: [@Ctrl_Alt_Deploy](https://twitter.com/Ctrl_Alt_Deploy)
 
 ## Acknowledgments
 
