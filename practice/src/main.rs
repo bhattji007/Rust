@@ -1,3 +1,5 @@
+/*
+
 fn main() {
     // let  x=7;
     let mut x=8;
@@ -7,3 +9,17 @@ fn main() {
      println!("value of x =>{x}")
 
 }
+ */
+
+
+//  Shadowing 
+ fn main(){
+    let x=5;
+    let x=x+1;
+    {
+        let x=x+2;
+        println!("value of x in brackets {x}");  //8
+    }
+    println!("value of x outside brackets {x}");   //6
+
+ }
