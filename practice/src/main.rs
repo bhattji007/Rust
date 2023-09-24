@@ -1,3 +1,4 @@
+use core::num;
 use std::{io, cmp::Ordering};
 
 
@@ -48,7 +49,7 @@ fn main() {
  */
 
 //  Array 
-
+/* 
  fn main(){
  let a =[1,3,4,5,6,6];
 
@@ -80,3 +81,55 @@ fn main() {
 
     }
  }
+
+
+ */
+
+
+// FUNCTIONS
+
+/* 
+fn main(){
+    println!("main function");
+    another_function(5,"children");
+    let x= five();
+    println!("value of x in main {x}");
+}
+fn five() -> i32 {
+    5
+}
+fn another_function(x:i32,y:&str){
+    println!("value of x is {x} and y is {y}");
+}
+*/
+
+// CONTROL STATEMENTS
+
+fn  main() {
+    // let number = 3;
+//     loop{
+//     let mut input = String::new();
+//     io::stdin()
+//     .read_line(&mut input)
+//     .expect("msg");
+//    let input:i32 = input
+//     .trim()
+//     .parse()
+//     .expect("can't convert");
+//     if input % 5==0{
+//         println!("Divisible by 5 ");
+//     }else if input %4 ==0{
+//         println!("Divisible by 4");
+//     }else if input %3 ==0{
+//         println!("Divisible by 3");
+//     }
+//     else if input==89 {
+//         break;
+//     }
+// }
+    let condition =false;
+    let y= if condition {56} else {84};
+    println!("{}",y);
+
+
+}
