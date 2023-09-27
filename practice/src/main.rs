@@ -105,7 +105,7 @@ fn another_function(x:i32,y:&str){
 
 // CONTROL STATEMENTS
 
-fn  main() {
+// fn  main() {
     // let number = 3;
 //     loop{
 //     let mut input = String::new();
@@ -127,9 +127,23 @@ fn  main() {
 //         break;
 //     }
 // }
-    let condition =false;
-    let y= if condition {56} else {84};
-    println!("{}",y);
+//     let condition =false;
+//     let y= if condition {56} else {84};
+//     println!("{}",y);
 
 
+// }
+
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
 }
