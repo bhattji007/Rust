@@ -189,3 +189,44 @@ fn main() {
     }
     println!("End count = {count}");
 }*/
+
+// fn main(){
+//     let mut number =3;
+//     while number !=0{
+//         println!("{number}");
+//         number-=1;
+//     }
+//     println!("LIFTOFF!!");
+// }
+
+// Looping Through a Collection with for
+
+// fn main(){
+//     let a=[10,20,30,40,50,60];
+//     let mut index=0;
+//     while index < 6{
+//         println!("the number at index {index} is {} ",a[index]);
+//         index+=1;
+//     }
+//     println!("Loop has ended!!");
+
+// }
+
+
+// 'For in' loop is more concise way of looping through collection
+
+// fn main(){
+//     let a=[10,20,30,40,50,60];
+//     for element in a {
+//         println!("the element is {}",element);
+//     }
+// }
+
+
+// some range can also be used for 'For' loop
+fn main(){
+    for number in (0..89).rev(){
+        println!("{number}");
+    }
+    println!("LIFTOFF!!");
+}
