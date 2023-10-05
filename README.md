@@ -12,13 +12,6 @@ This repository serves as a public record of my journey as I delve into the Rust
 - Gain practical experience through coding exercises and projects
 - Build a strong foundation for developing robust, safe, and efficient software in Rust
 
-## Progress Tracking
-
-- **[Day 1](day1/)**: Introduction to Rust, setting up the development environment, Getting Started 
-- **[Day 2](day2/)**: Exploring Rust syntax and basic data types, Guessing game, Common Programming Concepts.
-- ...
-
-
 
 ## Code Examples
 
