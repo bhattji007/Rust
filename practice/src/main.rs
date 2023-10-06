@@ -148,7 +148,13 @@ fn another_function(x:i32,y:&str){
 //     println!("The result is {result}");
 // }
 
-// Before the loop, we declare a variable named counter and initialize it to 0. Then we declare a variable named result to hold the value returned from the loop. On every iteration of the loop, we add 1 to the counter variable, and then check whether the counter is equal to 10. When it is, we use the break keyword with the value counter * 2. After the loop, we use a semicolon to end the statement that assigns the value to result. Finally, we print the value in result, which in this case is 20.
+// Before the loop, we declare a variable named counter and initialize it to 0. 
+// Then we declare a variable named result to hold the value returned from the loop.
+//  On every iteration of the loop, we add 1 to the counter variable, 
+// and then check whether the counter is equal to 10. When it is, 
+// we use the break keyword with the value counter * 2. After the loop, 
+// we use a semicolon to end the statement that assigns the value to result. 
+// Finally, we print the value in result, which in this case is 20.
 
 
 // Returning Values from Loops
@@ -224,9 +230,159 @@ fn main() {
 
 
 // some range can also be used for 'For' loop
-fn main(){
-    for number in (0..89).rev(){
-        println!("{number}");
-    }
-    println!("LIFTOFF!!");
-}
+// fn main(){
+//     for number in (0..89).rev(){
+//         println!("{number}");
+//     }
+//     println!("LIFTOFF!!");
+// }
+
+// Reference and Borrowing 
+
+
+
+
+// fn main() {
+//     let m1 = String::from("Hello");
+//     let m2 = String::from("world");
+//     greet(m1, m2);
+//     let s = format!("{} {}", m1, m2); // Error: m1 and m2 are moved
+// }
+
+// fn greet(g1: String, g2: String) {
+//     println!("{} {}!", g1, g2);
+// }
+
+// In this example, calling greet moves the data from m1 and m2 into the parameters of greet.
+//  Both strings are dropped at the end of greet, and therefore cannot be used within main.
+//   If we try to read them like in the operation format!(..), then that would be undefined behavior. 
+// The Rust compiler therefore rejects this program with the same error
+
+
+// we can re-write tyhis program but it quiote inconventional
+
+
+
+
+// fn main() {
+//     let m1 = String::from("Hello");
+//     let m2 = String::from("world");
+//     let (m1_again, m2_again) = greet(m1, m2);
+//     let s = format!("{} {}", m1_again, m2_again);
+// }
+
+// fn greet(g1: String, g2: String) -> (String, String) {
+//     println!("{} {}!", g1, g2);
+//     (g1, g2)
+// }
+
+
+// However, this style of program is quite verbose. 
+// Rust provides a concise style of reading and writing without moves through references.
+
+// References Are Non-Owning Pointers
+// A reference is a kind of pointer. 
+// Here's an example of a reference that rewrites our greet program in a more convenient manner:
+
+
+// fn main() {
+//     let m1 = String::from("Hello");
+//     let m2 = String::from("world");
+//     greet(&m1, &m2); // note the ampersands
+//     let s = format!("{} {}", m1, m2);
+// }
+
+// fn greet(g1: &String, g2: &String) { // note the ampersands
+//     println!("{} {}!", g1, g2);
+// }
+
+
+// The expression &m1 uses the ampersand operator to create a reference to (or "borrow") m1.
+//  The type of the greet parameter g1 is changed to &String, meaning "a reference to a String".
+
+// Observe at L2 that there are two steps from g1 to the string "Hello".
+//  g1 is a reference that points to m1 on the stack, and m1 is a String containing a box that points to "Hello" on the heap.
+
+// While m1 owns the heap data "Hello", g1 does not own either m1 or "Hello".
+//  Therefore after greet ends and the program reaches L3, no heap data has been deallocated. 
+// Only the stack frame for greet disappears. This fact is consistent with our Box Deallocation Principle.
+//  Because g1 did not own "Hello", Rust did not deallocate "Hello" on behalf of g1.
+
+// References are non-owning pointers, because they do not own the data they point to.
+
+
+
+
+// Struct 
+
+// struct User {
+//     active:bool,
+//     username:String,
+//     email:String,
+//     sign_in_count:i128
+// }
+
+
+// // Using the Field Init Shorthand
+
+// fn build_user(email:String,username:String)->User{
+//     User { active: (true), username, email, sign_in_count: (3) }
+// }
+
+
+
+
+// fn main(){
+
+//     // Three ways of useing struct
+//     let mut user1=build_user(String::from("shubhambhatt@123.com"), String::from("bhattji"));
+//     let user2=User{
+//         username:user1.username,
+//         email:user1.email,
+//         active:false,
+//         sign_in_count:user1.sign_in_count
+//     };
+//     let mut user3 =User{
+//         active:true,
+//         ..user2
+//     };
+//     print!("{}",user3.email);
+// }
+
+
+
+
+// fn main() {
+//     let width1 = 30;
+//     let height1 = 50;
+
+//     println!(
+//         "The area of the rectangle is {} square pixels.",
+//         area(width1, height1)
+//     );
+// }
+
+// fn area(width: u32, height: u32) -> u32 {
+//     width * height
+// }
+
+
+// #[derive(Debug)]
+// struct Rectangle{
+//     width:i32,
+//     height:i32
+// }
+
+// fn area( rectangle: &Rectangle)->i32{
+//     rectangle.width*rectangle.height
+// }
+
+
+// fn main(){
+//   let rect1=Rectangle{
+//     width:32,
+//     height:56
+//   };
+// //   let area=area(&rect1);
+//   println!("{:#?}",rect1);
+// }
