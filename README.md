@@ -15,7 +15,7 @@ This repository serves as a public record of my journey as I delve into the Rust
 
 ## Code Examples
 
-You can find Rust code examples organized by chapters in the [practice](practice/) directory. Each example showcases a particular concept or feature discussed in the book.
+You can find Rust code examples organized by chapters in the [practice-snippets](practice/) directory. Each example showcases a particular concept or feature discussed in the book.
 
 ## How to Use
 
