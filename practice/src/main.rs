@@ -445,3 +445,41 @@ fn main() {
 //         println!("The rectangle has a nonzero width; it is {}", rect1.width);
 //     }
 // }
+
+
+
+// Enum
+
+enum IpAddress{
+  V4(String),
+  V6(String)
+}
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+struct QuitMessage;
+struct MoveMessage{
+    x:i32,
+    y:i32
+}
+struct WriteMessage(String);
+struct ChangeColorMessage(i32,i32,i32);
+
+
+impl Message {
+    fn call(&self){
+        
+    }
+}
+
+
+
+fn main(){
+    let mut four =IpAddress::V4(String::from("four"));
+    let mut six=IpAddress::V6(String::from("six"));
+   
+}
