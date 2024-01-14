@@ -450,36 +450,50 @@ fn main() {
 
 // Enum
 
+// Any IP address can be either a version four or a version six address,but not both at the same time.
+//  That property of IP addresses makes the enum data structure appropriate because an enum value can only be one of its variants.
+//  Both version four and version six addresses are still fundamentally IP addresses, 
+// so they should be treated as the same type when the code is handling situations that apply to any kind of IP address.
+
+// We can express this concept in code by defining an IpAddrKind enumeration and listing the possible kinds an IP address can be,
+//  V4 and V6. These are the variants of the enum:
+
+
+
+
+
 enum IpAddress{
   V4(String),
   V6(String)
 }
-enum Message {
+// creating a structure consisting the kind of IpAddress and the address value
+struct IpAddr {
+    kind: IpAddress,
+    address: String,
+}
+enum Message{               // enum can also have methods
     Quit,
-    Move { x: i32, y: i32 },
+    Move{x:i32,y:i32},
     Write(String),
-    ChangeColor(i32, i32, i32),
+    ChangeColor(i32,i32,i32)
 }
-
-struct QuitMessage;
-struct MoveMessage{
-    x:i32,
-    y:i32
-}
-struct WriteMessage(String);
-struct ChangeColorMessage(i32,i32,i32);
-
-
-impl Message {
+impl Message{
     fn call(&self){
+        // method body
         
+        println!("The message is hello world",);
     }
 }
 
-
-
 fn main(){
-    let mut four =IpAddress::V4(String::from("four"));
-    let mut six=IpAddress::V6(String::from("six"));
-   
+    // let mut four  = IpAddress::V4(String::from("localhost"));
+    // let mut six = IpAddress::V6(String::from("localhost"));
+    Message::call(&Message::Quit);
+    Message::call(&Message::Move{x:5,y:6});
+    Message::call(&Message::Write(String::from("Hello world")));
+    Message::call(&Message::ChangeColor(5,6,7));
+
+    // let mut four =IpAddress::V4(String::from("four"));
+    // let mut six=IpAddress::V6(String::from("six"));
+    // println!("{:#?}",four);
 }
