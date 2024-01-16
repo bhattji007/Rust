@@ -462,38 +462,81 @@ fn main() {
 
 
 
-enum IpAddress{
-  V4(String),
-  V6(String)
+// enum IpAddress{
+//   V4(String),
+//   V6(String)
+// }
+// // creating a structure consisting the kind of IpAddress and the address value
+// struct IpAddr {
+//     kind: IpAddress,
+//     address: String,
+// }
+// enum Message{               // enum can also have methods
+//     Quit,
+//     Move{x:i32,y:i32},
+//     Write(String),
+//     ChangeColor(i32,i32,i32)
+// }
+// impl Message{
+//     fn call(&self){
+//         // method body
+
+//         println!("The message is hello world",);
+//     }
+// }
+
+// fn main(){
+//     // let mut four  = IpAddress::V4(String::from("localhost"));
+//     // let mut six = IpAddress::V6(String::from("localhost"));
+//     Message::call(&Message::Quit);
+//     Message::call(&Message::Move{x:5,y:6});
+//     Message::call(&Message::Write(String::from("Hello world")));
+//     Message::call(&Message::ChangeColor(5,6,7));
+
+//     // let mut four =IpAddress::V4(String::from("four"));
+//     // let mut six=IpAddress::V6(String::from("six"));
+//     // println!("{:#?}",four);
+// }
+
+
+
+// Option Enum and its advantages
+
+// fn main(){
+//     // let number :Option<i32>=Some(5);
+//     // let string :Option<&str>=Some("Hello world");
+//     // let absent_number:Option<i32>=None;
+
+//     let x:i8=5;
+//     let y:Option<i8>=None;   // None is of type Option<i8> 
+//     let sum=x+y.unwrap_or(0);  // unwrap_or() is a method of Option<T> which returns the value of T if it is Some(T) else returns the value passed as argument
+//     // let sum=x+y;  // this will give error as y is of type Option<i8> and x is of type i8
+// }
+
+
+// Match Control Flow Operator
+
+enum Coin{
+    Penny,
+    Nickel,
+    Dime,
+    Quarter
 }
-// creating a structure consisting the kind of IpAddress and the address value
-struct IpAddr {
-    kind: IpAddress,
-    address: String,
-}
-enum Message{               // enum can also have methods
-    Quit,
-    Move{x:i32,y:i32},
-    Write(String),
-    ChangeColor(i32,i32,i32)
-}
-impl Message{
-    fn call(&self){
-        // method body
-        
-        println!("The message is hello world",);
+
+fn value_in_cents(coin:Coin)->u32{
+    match coin{
+        Coin::Penny=>{
+            println!("Lucky Penny");
+            1
+        },
+        Coin::Nickel=>5,
+        Coin::Dime=>10,
+        Coin::Quarter=>25
     }
 }
 
 fn main(){
-    // let mut four  = IpAddress::V4(String::from("localhost"));
-    // let mut six = IpAddress::V6(String::from("localhost"));
-    Message::call(&Message::Quit);
-    Message::call(&Message::Move{x:5,y:6});
-    Message::call(&Message::Write(String::from("Hello world")));
-    Message::call(&Message::ChangeColor(5,6,7));
+        let coin=value_in_cents(Coin::Penny); // this will print "Lucky Penny" and return 1
+        println!("{}",coin);
 
-    // let mut four =IpAddress::V4(String::from("four"));
-    // let mut six=IpAddress::V6(String::from("six"));
-    // println!("{:#?}",four);
 }
