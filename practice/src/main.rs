@@ -516,27 +516,65 @@ fn main() {
 
 // Match Control Flow Operator
 
-enum Coin{
-    Penny,
-    Nickel,
-    Dime,
-    Quarter
-}
 
-fn value_in_cents(coin:Coin)->u32{
-    match coin{
-        Coin::Penny=>{
-            println!("Lucky Penny");
-            1
-        },
-        Coin::Nickel=>5,
-        Coin::Dime=>10,
-        Coin::Quarter=>25
-    }
-}
+// #[derive(Debug)]   // this is used to print the enum values
 
-fn main(){
-        let coin=value_in_cents(Coin::Penny); // this will print "Lucky Penny" and return 1
-        println!("{}",coin);
+// enum UStates{
+//     Alabama,
+//     Alaska,
+//     Arizona,
+//     Arkansas,
+    
+// }
 
-}
+
+// enum Coin{
+//     Penny,
+//     Nickel,
+//     Dime,
+//     Quarter(UStates) // this is an enum inside an enum
+// }
+
+// fn value_in_cents(coin:Coin)->u32{
+//     match coin{
+//         Coin::Penny=>{
+//             println!("Lucky Penny");
+//             1
+//         },
+//         Coin::Nickel=>5,
+//         Coin::Dime=>10,
+//         Coin::Quarter(state)=>{
+//             println!("State quarter from {:?}",state);
+//             25
+//         }
+//     }
+// }
+
+// fn main(){
+//         value_in_cents(Coin::Quarter(UStates::Alaska));
+
+// }
+
+
+
+
+// combining match expression with enum 
+// fn main(){
+//     let five =Some(5);   // Some is an enum
+//     let six=plus_one(five);  
+//     let seven=plus_one(six);   // plus_one() is a function which takes an Option<i32> and returns an Option<i32>
+//     let eight=plus_one(Some(78));
+//     println!("value of eight {:#?}",eight.unwrap()); 
+//     println!("value of  seven {:#?}",seven.unwrap()); 
+//     println!("value of six {:#?}",six.unwrap());
+//     println!("value of five {:#?}",five.unwrap());   
+// }
+
+// fn plus_one(x:Option<i32>) -> Option<i32>{  // this function takes an Option<i32> and returns an Option<i32>
+//     match x{
+//         None=>None,    // if x is None then return None
+//         Some(5)=>Some(6+1),   // if x is Some(i) then return Some(i+1)
+//         _=>Some(7867)
+//     }   
+// }
+
