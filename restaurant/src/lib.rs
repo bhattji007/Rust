@@ -138,29 +138,42 @@
 
 
 
-mod main_hall{
-    pub mod hosting{
-        pub fn add_to_waitlist(){}
-    }
+// mod main_hall{
+//     pub mod hosting{
+//         pub fn add_to_waitlist(){}
+//     }
+// }
+
+
+
+// // use rand::Rng;  // use keyword brings a path into scope
+// // use rand::ErrorKind::Transient;  //ErrorKind is an enum
+// // use rand::CryptoRng;  // CryptoRng is a trait
+
+
+// // or we can use nested paths
+
+// use rand::{Rng,CryptoRng,ErrorKind::Transient}; // nested paths
+
+// pub use crate::main_hall::hosting;  // pub use makes the path available to code that calls our code outside of the crate
+
+// pub fn eat_at_restraunt(){
+
+//     let secret_number = rand::thread_rng().gen_range(1, 101);  // rand::thread_rng() returns a type that has the gen_range method on it
+//     hosting::add_to_waitlist();
+//     hosting::add_to_waitlist();
+//     hosting::add_to_waitlist();
+// }   
+
+
+// --------------------------------------<Section Ends>--------------------------------------------------
+
+// -------------------------------------<Section Starts>--------------------------------------------------
+// importing modules from other files
+mod main_hall;
+
+pub use crate::main_hall::hosting;
+
+pub fn eat_at_restraunt() {
+        hosting::add_to_waitlist();
 }
-
-
-
-// use rand::Rng;  // use keyword brings a path into scope
-// use rand::ErrorKind::Transient;  //ErrorKind is an enum
-// use rand::CryptoRng;  // CryptoRng is a trait
-
-
-// or we can use nested paths
-
-use rand::{Rng,CryptoRng,ErrorKind::Transient}; // nested paths
-
-pub use crate::main_hall::hosting;  // pub use makes the path available to code that calls our code outside of the crate
-
-pub fn eat_at_restraunt(){
-
-    let secret_number = rand::thread_rng().gen_range(1, 101);  // rand::thread_rng() returns a type that has the gen_range method on it
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}   
