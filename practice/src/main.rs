@@ -578,6 +578,30 @@ fn main() {
 //     }   
 // }
 
-fn main(){
-    
-}
+// fn main(){
+//     // let a =[1,2,3];
+//     // let mut  v:Vec<i32>= Vec::new();    // one way to initialize vectors
+
+//     // v.push(1);
+//     // v.push(2);
+//     // v.push(3);
+//     // println!("hello");
+
+
+//     let mut v2= vec![1,2,63,4,5];  //another way to initialize vector 
+//     // let third =&v2[2];
+//     // println!("the third element is {}",third);
+
+//     // another way to access the vector values 
+
+//     // match v2.get(2){
+//     //     Some(third)=> println!("the third value is {}",third),
+//     //     None=>println!("there is no such index")
+//     // }
+
+
+//     // Iterating over vectors 
+//     for i in &mut v2{
+//         println!("{}",*i+1);            // we use (*) to dereference the integer and use underlying value 
+//     }
+// }   
