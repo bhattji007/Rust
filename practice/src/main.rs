@@ -647,12 +647,107 @@ fn main() {
 // HASHMAP
 
 
-use std::collections::HashMap;
+// use std::collections::HashMap;
+
+// fn main(){
+//   let blue =String::from("Blue");
+//   let yellow=String ::from("Yellow");
+//   let mut scores= HashMap::new();
+//     scores.insert(blue,10);
+//     scores.insert(yellow,13);
+// }
+
+
+// Error Handling
+
+
+// fn main(){
+//     panic!("crash and burn");       // if your program cannot handle error gracefully then you can use panic 
+// }
+
+
+// BackTrace in RUST
+
+
+// fn main(){
+//     a();
+// }
+
+// fn a(){
+//     b();
+// }
+
+// fn b(){
+//     c(22);
+// }
+// fn c(num:i32){
+//     if num==22{
+//         panic!("Not the 22 please!");
+//     }
+// }
+
+
+
+// Recoverable Errors in RUST
+
+// fn main(){
+//     enum Result <T,E>{
+//         Ok(T),
+//         Err(E)
+//     }
+// }
+
+// use std::fs::File;
+
+// use std::io::ErrorKind;
+
+// fn main(){
+//     let f=File::open("/demo.txt");
+//     // let _f=match f{
+//     //     Ok(file)=>file,
+//     //     Err(error)=> match error.kind(){
+//     //         ErrorKind::NotFound=> match File::create("demo.txt"){
+//     //             Ok(fi)=>fi,
+//     //             Err(e)=>panic!("There was a problem creating the file {:?}",e)
+//     //         },
+//     //         other=>{
+//     //             panic!("There was a problem openming the file {:?}",other)
+//     //         }
+//     //     }
+//     // };
+
+
+
+//     //Easy way of write the same code of opening a file gracefully 
+//     let f1=File::open("demo.txt").unwrap();
+//     // or
+//     let f3=File::open("deo.txt").expect("file can't be open");
+
+// }
+
+
+
+// Error Propogation
+
+use std::fs::File;
+use std::io;
+use std::io::Read;
+
+fn read_text_from_file()->Result<String,io::Error>{
+    let f=File::open("demo.txt");
+    let mut f= match f{
+        Ok(file)=>file,
+        Err(er)=>panic!("problem while opening the file {:?}",er),
+    };
+    let mut s= String::new();
+    match f.read_to_string(&mut s){
+        Ok(_)=>Ok(s),
+        Err(e)=>Err(e)  
+    }
+}
+
+
 
 fn main(){
-  let blue =String::from("Blue");
-  let yellow=String ::from("Yellow");
-  let mut scores= HashMap::new();
-    scores.insert(blue,10);
-    scores.insert(yellow,13);
+
 }
