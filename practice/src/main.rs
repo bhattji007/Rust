@@ -607,37 +607,52 @@ fn main() {
 //     }
 // }   
 
-use std::fmt::format;
+
+
+// fn main(){
+//     // Strings
+//     // different ways to define strings
+//     // let s1=String::new();
+//     // let s2="initial Content";
+//     // let s3=s2.to_string();
+//     // let s4 =String::from("This is the string i was talking about ");
+
+
+//     // Appending to Strings
+
+//     // let mut s=String::from("Hello");
+//     // s.push_str( " world ");
+//     // s.push('!');
+
+//     // println!("the String is {}",s);
+
+//     // let s1=String::from("Hello ");
+//     // let s2=String::from("WORLD ");
+//     // let s4=format!("{}{}",s1,s2);
+//     // let s3=s1+ &s2;
+//     // println!("the String is {} and {}",s4,s3);
+
+
+
+//     // // Indexing into a string
+//     // let hello=String::from("hellow world !!");
+//     // for c in hello.chars(){
+//     //     println!("{}",c);
+//     // }
+
+// }
+
+
+
+// HASHMAP
+
+
+use std::collections::HashMap;
 
 fn main(){
-    // Strings
-    // different ways to define strings
-    // let s1=String::new();
-    // let s2="initial Content";
-    // let s3=s2.to_string();
-    // let s4 =String::from("This is the string i was talking about ");
-
-
-    // Appending to Strings
-
-    // let mut s=String::from("Hello");
-    // s.push_str( " world ");
-    // s.push('!');
-
-    // println!("the String is {}",s);
-
-    // let s1=String::from("Hello ");
-    // let s2=String::from("WORLD ");
-    // let s4=format!("{}{}",s1,s2);
-    // let s3=s1+ &s2;
-    // println!("the String is {} and {}",s4,s3);
-
-
-
-    // // Indexing into a string
-    // let hello=String::from("hellow world !!");
-    // for c in hello.chars(){
-    //     println!("{}",c);
-    // }
-
+  let blue =String::from("Blue");
+  let yellow=String ::from("Yellow");
+  let mut scores= HashMap::new();
+    scores.insert(blue,10);
+    scores.insert(yellow,13);
 }
