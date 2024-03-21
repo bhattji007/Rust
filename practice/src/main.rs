@@ -729,25 +729,157 @@ fn main() {
 
 // Error Propogation
 
-use std::fs::File;
-use std::io;
-use std::io::Read;
+// use std::fs::File;
+// use std::io;
+// use std::io::Read;
 
-fn read_text_from_file()->Result<String,io::Error>{
-    let f=File::open("demo.txt");
-    let mut f= match f{
-        Ok(file)=>file,
-        Err(er)=>panic!("problem while opening the file {:?}",er),
-    };
-    let mut s= String::new();
-    match f.read_to_string(&mut s){
-        Ok(_)=>Ok(s),
-        Err(e)=>Err(e)  
-    }
-}
+// fn read_text_from_file()->Result<String,io::Error>{
+//     let f=File::open("demo.txt");
+//     let mut f= match f{
+//         Ok(file)=>file,
+//         Err(er)=>panic!("problem while opening the file {:?}",er),
+//     };
+//     let mut s= String::new();
+//     match f.read_to_string(&mut s){
+//         Ok(_)=>Ok(s),
+//         Err(e)=>Err(e)  
+//     }
+// }
 
 
 
-fn main(){
+// Generic Types
 
-}
+
+// fn main(){
+
+//     let number_list =vec![10,20,30,40,50,60];
+//     let mut largest=number_list[0];
+//     for num in number_list{
+//         if num>largest{
+//             largest=num;
+//         }
+//     }
+//     let number_list =vec![10,20,30,40,90,100,1091,50,60];
+
+//     let function= get_largest_num(number_list);
+
+
+//     let char_list=vec!['y','u','e','s'];
+//     let largest_char= get_largest_char(char_list);
+//     println!("The largest number is {} and {} and {}",largest, function,largest_char);
+
+// }
+
+
+// // lets create a fucntion for it 
+
+// fn get_largest_num (number_list:Vec<i32>)->i32{
+//     let mut number= number_list[0];
+//     for num in number_list{
+//         if num >number{
+//             number= num;
+//         }
+//     }
+//     number
+// }
+
+
+// fn get_largest_char (number_list:Vec<char>)->char{
+//     let mut number= number_list[0];
+//     for num in number_list{
+//         if num >number{
+//             number= num;
+//         }
+//     }
+//     number
+// }
+
+
+// fn get_largest_all<T:PartialOrd+Copy>(number_list:Vec<T>)->T{  //generic used
+//     let mut number= number_list[0];
+//     for num in number_list{
+//         if num >number{
+//             number= num;
+//         }
+//     }
+//     number
+// }
+
+// struct Point<T,U> {
+//     x:T,
+//     y:U
+// }
+
+
+// fn main(){
+//     let p1 =Point{x:5,y:67};
+//     let p2 =Point{x:5.0,y:67.0};
+//     let p3 =Point{x:5.0,y:67};   // Multiple generic types in a single struct in this situation
+// }
+
+
+
+// Generics inside enums 
+
+// fn main(){
+// enum Option<T>{
+//     Some(T),
+//     None,
+// }
+// enum Result<T,E>{
+//     Ok(T),
+//     Err(E)
+// }
+// }
+
+
+// Implementation of structs
+
+
+
+// struct Point<T> {
+//         x:T,
+//         y:T
+//     }
+    
+//     impl <T> Point<T>{
+//         fn x(&self)->&T{
+//             &self.x
+//         }
+//     }
+
+//     impl  Point<f64>{
+//         fn y(&self)->f64{
+//             self.y
+//         }
+//     }
+// fn main(){
+//      let p=Point{x:5,y:10};
+//      p.x();
+//      let p1=Point{x:5.0,y:10.0};
+//      p1.y();
+// }
+
+// struct Point<T,U>{
+//     x:T,
+//     y:U
+// }
+
+// impl <T,U> Point<T,U> {
+//     fn mixup<V,W>(self,other:Point<V,W>)-> Point <T,W>{
+//         Point {
+//             x:self.x,
+//             y:other.y
+//         }
+//     }
+// }
+
+// fn main(){
+
+
+//     let p=Point{x:5,y:10};
+//     let p1=Point{x:"Hello",y:'c'};
+//     let p3=p.mixup(p1); 
+//     println!("p3.x= {}, p3.y={}",p3.x,p3.y);
+// }
