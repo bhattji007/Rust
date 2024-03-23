@@ -883,3 +883,53 @@ fn main() {
 //     let p3=p.mixup(p1); 
 //     println!("p3.x= {}, p3.y={}",p3.x,p3.y);
 // }
+
+
+pub struct NewsArticle{
+    pub author:String,
+    pub headline:String,
+    pub content:String
+}
+
+
+impl Summary  for NewsArticle{
+    fn summarize(&self)->String {
+        format!("{} by {}",self.headline,self.author)
+    }
+}
+
+pub struct Tweet{
+    pub username:String,
+    pub content:String,
+    pub reply: bool,
+    pub retweet:bool
+}
+
+
+impl Summary for Tweet{
+    fn summarize(&self)->String {
+        format!("{} by {}",self.username,self.content)
+    }
+}
+
+pub trait Summary{
+    fn summarize(&self)->String;
+}
+
+fn main(){
+
+    let tweet=Tweet{
+        username:String::from("@sammywalsh"),
+        content:String::from("Fuck You Bitch"),
+        reply:false,
+        retweet:false
+    };
+    let article=NewsArticle{
+        headline:String::from("Killer bees comes to life"),
+        author:String::from("freakt frank"),
+        content:String::from("100 killed so far")
+    };
+    println!("Tweet Summary : {}",tweet.summarize());
+    println!("News Article : {}",article.summarize())
+
+}
